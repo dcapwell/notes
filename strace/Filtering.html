@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>Filtering | Notes</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.5.0">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    
+    
+    <link rel="next" href="../strace/RunningProcess.html" />
+    
+    
+    <link rel="prev" href="../strace/Intro.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book" data-level="1.2" data-basepath=".." data-revision="1424585430024">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="strace/README.html">
+            
+                
+                    <a href="../strace/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         Strace
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="1.1" data-path="strace/Intro.html">
+            
+                
+                    <a href="../strace/Intro.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                         Intro
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="1.2" data-path="strace/Filtering.html">
+            
+                
+                    <a href="../strace/Filtering.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                         Filtering
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.3" data-path="strace/RunningProcess.html">
+            
+                
+                    <a href="../strace/RunningProcess.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                         Running Process
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.4" data-path="strace/pkill.html">
+            
+                
+                    <a href="../strace/pkill.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                         pkill
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Notes</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_2">
+                    
+                        <h1 id="strace-filtering">Strace Filtering</h1>
+<p><code>strace</code> can produce a lot of information, so if you know what you are looking for, you can ask it to just emit that information.  Lets say you want to know what are all the files opened by <code>curl</code>, you can use the <code>open</code> syscall for that.</p>
+<pre><code class="lang-bash">$ strace <span class="hljs-operator">-e</span> trace=open -- curl <span class="hljs-operator">-s</span>L -o /dev/null http://google.com
+open(<span class="hljs-string">"/etc/ld.so.cache"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libcurl.so.4"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/lib/x86_64-linux-gnu/libz.so.1"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/lib/x86_64-linux-gnu/libpthread.so.0"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/lib/x86_64-linux-gnu/libc.so.6"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libidn.so.11"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/librtmp.so.0"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/lib/x86_64-linux-gnu/libssl.so.1.0.0"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/lib/x86_64-linux-gnu/libcrypto.so.1.0.0"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/liblber-2.4.so.2"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libldap_r-2.4.so.2"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libgnutls.so.26"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/lib/x86_64-linux-gnu/libgcrypt.so.11"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/lib/x86_64-linux-gnu/libdl.so.2"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libkrb5.so.3"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libk5crypto.so.3"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/lib/x86_64-linux-gnu/libcom_err.so.2"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libkrb5support.so.0"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/lib/x86_64-linux-gnu/libresolv.so.2"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libsasl2.so.2"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libgssapi.so.3"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libtasn1.so.6"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libp11-kit.so.0"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/lib/x86_64-linux-gnu/libgpg-error.so.0"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/lib/x86_64-linux-gnu/libkeyutils.so.1"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libheimntlm.so.0"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libkrb5.so.26"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libasn1.so.8"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libhcrypto.so.4"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libroken.so.18"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libffi.so.6"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libwind.so.0"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libheimbase.so.1"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libhx509.so.5"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/x86_64-linux-gnu/libsqlite3.so.0"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/lib/x86_64-linux-gnu/libcrypt.so.1"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/usr/lib/locale/locale-archive"</span>, O_RDONLY|O_CLOEXEC) = <span class="hljs-number">3</span>
+open(<span class="hljs-string">"/home/dcapwell/.curlrc"</span>, O_RDONLY) = -<span class="hljs-number">1</span> ENOENT (No such file or directory)
+open(<span class="hljs-string">"/dev/null"</span>, O_WRONLY|O_CREAT|O_TRUNC, <span class="hljs-number">0666</span>) = <span class="hljs-number">5</span>
++++ exited with <span class="hljs-number">0</span> +++
+</code></pre>
+<p>Here we see that c will load all the modules curl needs, but this also shows what the curl configuration file is!</p>
+<pre><code>open(&quot;/home/dcapwell/.curlrc&quot;, O_RDONLY) = -1 ENOENT (No such file or directory)
+</code></pre><p>Curl tried to open a <code>$HOME/.curlrc</code> file!  This is a great way to see what configuration files a new cli uses (also the <code>stat</code> syscall).</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../strace/Intro.html" class="navigation navigation-prev " aria-label="Previous page: Intro"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../strace/RunningProcess.html" class="navigation navigation-next " aria-label="Next page: Running Process"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
