@@ -5,22 +5,24 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Introduction | Notes</title>
+        <title>Intro | Notes</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="My developer notes">
+        <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
         <meta name="HandheldFriendly" content="true"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
-        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         
         
     
     
-    <link rel="next" href="./strace/README.html" />
+    <link rel="next" href="../perf/FlameGraphs.html" />
     
+    
+    <link rel="prev" href="../perf/Install.html" />
     
 
         
@@ -28,11 +30,11 @@
     <body>
         
         
-<link rel="stylesheet" href="gitbook/style.css">
+<link rel="stylesheet" href="../gitbook/style.css">
 
 
         
-    <div class="book" data-level="0" data-basepath="." data-revision="1424648525686">
+    <div class="book" data-level="2.2" data-basepath=".." data-revision="1424648525686">
     
 
 <div class="book-summary">
@@ -50,10 +52,10 @@
         
     
         
-        <li class="chapter active" data-level="0" data-path="index.html">
+        <li class="chapter " data-level="0" data-path="index.html">
             
                 
-                    <a href="./index.html">
+                    <a href="../index.html">
                         <i class="fa fa-check"></i>
                         
                          Introduction
@@ -67,7 +69,7 @@
         <li class="chapter " data-level="1" data-path="strace/README.html">
             
                 
-                    <a href="./strace/README.html">
+                    <a href="../strace/README.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.</b>
@@ -84,7 +86,7 @@
         <li class="chapter " data-level="1.1" data-path="strace/Intro.html">
             
                 
-                    <a href="./strace/Intro.html">
+                    <a href="../strace/Intro.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.1.</b>
@@ -100,7 +102,7 @@
         <li class="chapter " data-level="1.2" data-path="strace/Filtering.html">
             
                 
-                    <a href="./strace/Filtering.html">
+                    <a href="../strace/Filtering.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.2.</b>
@@ -116,7 +118,7 @@
         <li class="chapter " data-level="1.3" data-path="strace/RunningProcess.html">
             
                 
-                    <a href="./strace/RunningProcess.html">
+                    <a href="../strace/RunningProcess.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.3.</b>
@@ -132,7 +134,7 @@
         <li class="chapter " data-level="1.4" data-path="strace/pkill.html">
             
                 
-                    <a href="./strace/pkill.html">
+                    <a href="../strace/pkill.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.4.</b>
@@ -153,7 +155,7 @@
         <li class="chapter " data-level="2" data-path="perf/README.html">
             
                 
-                    <a href="./perf/README.html">
+                    <a href="../perf/README.html">
                         <i class="fa fa-check"></i>
                         
                             <b>2.</b>
@@ -170,7 +172,7 @@
         <li class="chapter " data-level="2.1" data-path="perf/Install.html">
             
                 
-                    <a href="./perf/Install.html">
+                    <a href="../perf/Install.html">
                         <i class="fa fa-check"></i>
                         
                             <b>2.1.</b>
@@ -183,10 +185,10 @@
         </li>
     
         
-        <li class="chapter " data-level="2.2" data-path="perf/Intro.html">
+        <li class="chapter active" data-level="2.2" data-path="perf/Intro.html">
             
                 
-                    <a href="./perf/Intro.html">
+                    <a href="../perf/Intro.html">
                         <i class="fa fa-check"></i>
                         
                             <b>2.2.</b>
@@ -202,7 +204,7 @@
         <li class="chapter " data-level="2.3" data-path="perf/FlameGraphs.html">
             
                 
-                    <a href="./perf/FlameGraphs.html">
+                    <a href="../perf/FlameGraphs.html">
                         <i class="fa fa-check"></i>
                         
                             <b>2.3.</b>
@@ -300,7 +302,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="./" >Notes</a>
+        <a href="../" >Notes</a>
     </h1>
 </div>
 
@@ -308,10 +310,27 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_1">
+                    <section class="normal" id="section-gitbook_5">
                     
-                        <h1 id="notes">Notes</h1>
-<p>These are my development notes...</p>
+                        <h1 id="perf-intro">Perf Intro</h1>
+<p>Once <code>perf</code> is installed, using it is can take a bit, since it has a lot you can do with it.</p>
+<p>One way of using it is to collect stack traces of a application.  To do this, you use the <code>record</code> command with a few arguments.</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> perf record -F <span class="hljs-number">99</span> <span class="hljs-operator">-a</span> -g -- curl <span class="hljs-operator">-s</span>L -o /dev/null http://google.com <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span>
+<span class="hljs-built_in">sudo</span> perf script | stackcollapse-perf.pl | flamegraph.pl &gt; perf.svg
+</code></pre>
+<p>A lot is going on here, so lets break it down.  <code>perf record</code> states that <code>perf</code> needs to monitor the command being run (<code>curl -sL -o /dev/null http://google.com 2&gt;&amp;1</code>). But what gets monitored is based off the other flags, so lets look at those flags</p>
+<pre><code class="lang-man">-a, --all-cpus
+   System-wide collection from all CPUs.
+...
+
+-g
+   Enables call-graph (stack chain/backtrace) recording.
+...
+
+-F, --freq=
+   Profile at this frequency.
+</code></pre>
+<p>So, the main flag here is <code>-g</code> which tells <code>perf</code> to look at the stack, so we know what functions call what.  <code>-a</code> tells <code>perf</code> to monitor all the CPUs, and this is important, since <code>perf</code> lets you control which CPUs are monitored (also which sockets). And finally the <code>-F</code> option tells <code>perf</code> how often it should collect stack traces (so in our case, 99 Hertz).</p>
 
                     
                     </section>
@@ -322,21 +341,23 @@
         </div>
 
         
+        <a href="../perf/Install.html" class="navigation navigation-prev " aria-label="Previous page: Install"><i class="fa fa-angle-left"></i></a>
         
-        <a href="./strace/README.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Strace"><i class="fa fa-angle-right"></i></a>
+        
+        <a href="../perf/FlameGraphs.html" class="navigation navigation-next " aria-label="Next page: Flame Graphs"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
 
         
-<script src="gitbook/app.js"></script>
+<script src="../gitbook/app.js"></script>
 
     
     <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
     
-    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
     
 
 <script>
