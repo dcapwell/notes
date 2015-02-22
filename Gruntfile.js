@@ -17,12 +17,12 @@ module.exports = function (grunt) {
         },
         'gh-pages': {
             options: {
-                base: '_book'
+                base: 'site/_book'
             },
             src: ['**']
         },
         'clean': {
-            files: ['.grunt', '_book']
+            files: ['.grunt', 'site/_book']
         }
     });
 

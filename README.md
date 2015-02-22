@@ -27,3 +27,22 @@ Now you are ready to build the site
 ```
 grunt clean gitbook
 ```
+
+## Publish site
+
+To publish, you need to be able to commit to github, which may require you to mount your user in the container.  Here is how I do it.
+
+```
+docker run -ti --rm \
+  -w $PWD -v $PWD:$PWD \
+  -v $HOME:$HOME \
+  -v /etc/passwd:/etc/passwd -v /etc/shadow:/etc/shadow -v /etc/group:/etc/group \
+  --user $USER \
+  devel/grunt bash
+```
+
+Once inside, you can publish
+
+```
+grunt publish
+```
