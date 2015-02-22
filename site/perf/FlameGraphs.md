@@ -9,4 +9,4 @@ sudo perf script | stackcollapse-perf.pl | flamegraph.pl > perf.svg
 
 Just record, then convert from `perf` to flamegraph format (`stackcollapse-perf.pl`), then create the svg (`flamegraph.pl > perf.svg`).  Once you do this, you will get the awesome image below!
 
-![Curl flame graph](imgs/perf.svg)
+![Curl flame graph](../imgs/perf.svg)
