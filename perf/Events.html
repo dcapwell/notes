@@ -1,0 +1,548 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>Events | Notes</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.5.0">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    
+    
+    
+    <link rel="prev" href="../perf/FlameGraphs.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book" data-level="2.4" data-basepath=".." data-revision="1424679683894">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="strace/README.html">
+            
+                
+                    <a href="../strace/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         Strace
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="1.1" data-path="strace/Intro.html">
+            
+                
+                    <a href="../strace/Intro.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                         Intro
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.2" data-path="strace/Filtering.html">
+            
+                
+                    <a href="../strace/Filtering.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                         Filtering
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.3" data-path="strace/RunningProcess.html">
+            
+                
+                    <a href="../strace/RunningProcess.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                         Running Process
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.4" data-path="strace/pkill.html">
+            
+                
+                    <a href="../strace/pkill.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                         pkill
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="perf/README.html">
+            
+                
+                    <a href="../perf/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         Perf
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="2.1" data-path="perf/Install.html">
+            
+                
+                    <a href="../perf/Install.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                         Install
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.2" data-path="perf/Intro.html">
+            
+                
+                    <a href="../perf/Intro.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                         Intro
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.3" data-path="perf/FlameGraphs.html">
+            
+                
+                    <a href="../perf/FlameGraphs.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                         Flame Graphs
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="2.4" data-path="perf/Events.html">
+            
+                
+                    <a href="../perf/Events.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                         Events
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Notes</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_3">
+                    
+                        <h1 id="perf-events">Perf Events</h1>
+<p><code>perf</code> has a lot of information about how programs behave.  Since its built for the kernel, there are a lot of details on how hardware, software, and kernel all interact with each other.  When you use <code>perf</code> you can select what events you care about for monitoring; the <code>perf list</code> command gives you events you can listen to.</p>
+<pre><code class="lang-bash">$ perf list
+List of pre-defined events (to be used <span class="hljs-keyword">in</span> <span class="hljs-operator">-e</span>):
+  cpu-cycles OR cycles                               [Hardware event]
+  instructions                                       [Hardware event]
+  cache-references                                   [Hardware event]
+  cache-misses                                       [Hardware event]
+  branch-instructions OR branches                    [Hardware event]
+  branch-misses                                      [Hardware event]
+  bus-cycles                                         [Hardware event]
+  ref-cycles                                         [Hardware event]
+
+  cpu-clock                                          [Software event]
+  task-clock                                         [Software event]
+  page-faults OR faults                              [Software event]
+  context-switches OR cs                             [Software event]
+  cpu-migrations OR migrations                       [Software event]
+  minor-faults                                       [Software event]
+  major-faults                                       [Software event]
+  alignment-faults                                   [Software event]
+  emulation-faults                                   [Software event]
+  dummy                                              [Software event]
+
+  L1-dcache-loads                                    [Hardware cache event]
+  L1-dcache-load-misses                              [Hardware cache event]
+  L1-dcache-stores                                   [Hardware cache event]
+  L1-dcache-store-misses                             [Hardware cache event]
+  L1-dcache-prefetch-misses                          [Hardware cache event]
+  L1-icache-load-misses                              [Hardware cache event]
+  LLC-loads                                          [Hardware cache event]
+  LLC-stores                                         [Hardware cache event]
+  LLC-prefetches                                     [Hardware cache event]
+  dTLB-loads                                         [Hardware cache event]
+  dTLB-load-misses                                   [Hardware cache event]
+  dTLB-stores                                        [Hardware cache event]
+  dTLB-store-misses                                  [Hardware cache event]
+  iTLB-loads                                         [Hardware cache event]
+  iTLB-load-misses                                   [Hardware cache event]
+  branch-loads                                       [Hardware cache event]
+  branch-load-misses                                 [Hardware cache event]
+
+  branch-instructions OR cpu/branch-instructions/    [Kernel PMU event]
+  branch-misses OR cpu/branch-misses/                [Kernel PMU event]
+  bus-cycles OR cpu/bus-cycles/                      [Kernel PMU event]
+  cache-misses OR cpu/cache-misses/                  [Kernel PMU event]
+  cache-references OR cpu/cache-references/          [Kernel PMU event]
+  cpu-cycles OR cpu/cpu-cycles/                      [Kernel PMU event]
+  cycles-ct OR cpu/cycles-ct/                        [Kernel PMU event]
+  cycles-t OR cpu/cycles-t/                          [Kernel PMU event]
+  el-abort OR cpu/el-abort/                          [Kernel PMU event]
+  el-capacity OR cpu/el-capacity/                    [Kernel PMU event]
+  el-commit OR cpu/el-commit/                        [Kernel PMU event]
+  el-conflict OR cpu/el-conflict/                    [Kernel PMU event]
+  el-start OR cpu/el-start/                          [Kernel PMU event]
+  instructions OR cpu/instructions/                  [Kernel PMU event]
+  mem-loads OR cpu/mem-loads/                        [Kernel PMU event]
+  mem-stores OR cpu/mem-stores/                      [Kernel PMU event]
+  tx-abort OR cpu/tx-abort/                          [Kernel PMU event]
+  tx-capacity OR cpu/tx-capacity/                    [Kernel PMU event]
+  tx-commit OR cpu/tx-commit/                        [Kernel PMU event]
+  tx-conflict OR cpu/tx-conflict/                    [Kernel PMU event]
+  tx-start OR cpu/tx-start/                          [Kernel PMU event]
+
+  rNNN                                               [Raw hardware event descriptor
+  cpu/t1=v1[,t2=v2,t3 ...]/modifier                  [Raw hardware event descriptor
+   (see <span class="hljs-string">'man perf-list'</span> on how to encode it)
+
+  mem:&lt;addr&gt;[:access]                                [Hardware breakpoint]
+</code></pre>
+<p>For example, lets look at caches and branching.</p>
+<h1 id="adders">Adders</h1>
+<p>These examples sum up a lists of data.  The implementations are what differ as a means to show how caching and branching are effected.</p>
+<p>The following events are being monitored</p>
+<pre><code class="lang-bash">$ perf list | grep -E <span class="hljs-string">"loads|misses"</span> | grep -v OR | awk <span class="hljs-string">'{print $1}'</span>
+cache-misses                  <span class="hljs-comment"># was not found in any cpu cache</span>
+branch-misses
+L1-dcache-loads               <span class="hljs-comment"># L1 data cache (d stands for data)</span>
+L1-dcache-load-misses
+L1-dcache-store-misses
+L1-dcache-prefetch-misses
+L1-icache-load-misses         <span class="hljs-comment"># L1 instruction cache (i stands for instruction)</span>
+LLC-loads                     <span class="hljs-comment"># "Last Level Cache", if not found here, then "cache-misses" will inc</span>
+dTLB-loads                    <span class="hljs-comment"># "translation lookaside buffer", cache for virtual to physical address lookup (d stands for data)</span>
+dTLB-load-misses
+dTLB-store-misses
+iTLB-loads                    <span class="hljs-comment"># "translation lookaside buffer", cache for virtual to physical address lookup(i stands for instruction)</span>
+iTLB-load-misses
+branch-loads
+branch-load-misses
+</code></pre>
+<h2 id="linear">Linear</h2>
+<p>Take a array and walks it in order. The code can be found <a href="../src/main/c/perf-flamegraph/linear_adder.c">here</a></p>
+<pre><code class="lang-bash"> Performance counter stats <span class="hljs-keyword">for</span> <span class="hljs-string">'./linear_adder'</span>:
+
+        <span class="hljs-number">40</span>,<span class="hljs-number">878</span>,<span class="hljs-number">727</span> cache-misses                                                 [<span class="hljs-number">26.99</span>%]
+        <span class="hljs-number">14</span>,<span class="hljs-number">306</span>,<span class="hljs-number">047</span> branch-misses                                                [<span class="hljs-number">27.38</span>%]
+    <span class="hljs-number">16</span>,<span class="hljs-number">189</span>,<span class="hljs-number">466</span>,<span class="hljs-number">181</span> L1-dcache-loads                                              [<span class="hljs-number">27.17</span>%]
+       <span class="hljs-number">473</span>,<span class="hljs-number">557</span>,<span class="hljs-number">465</span> L1-dcache-load-misses     <span class="hljs-comment">#    2.93% of all L1-dcache hits   [26.63%]</span>
+       <span class="hljs-number">264</span>,<span class="hljs-number">300</span>,<span class="hljs-number">663</span> L1-dcache-store-misses                                       [<span class="hljs-number">26.10</span>%]
+                 <span class="hljs-number">0</span> L1-dcache-prefetch-misses                                    [<span class="hljs-number">25.75</span>%]
+        <span class="hljs-number">84</span>,<span class="hljs-number">983</span>,<span class="hljs-number">515</span> L1-icache-load-misses                                        [<span class="hljs-number">26.26</span>%]
+        <span class="hljs-number">63</span>,<span class="hljs-number">150</span>,<span class="hljs-number">229</span> LLC-loads                                                    [<span class="hljs-number">26.67</span>%]
+    <span class="hljs-number">16</span>,<span class="hljs-number">000</span>,<span class="hljs-number">418</span>,<span class="hljs-number">087</span> dTLB-loads                                                   [<span class="hljs-number">27.48</span>%]
+        <span class="hljs-number">12</span>,<span class="hljs-number">953</span>,<span class="hljs-number">496</span> dTLB-load-misses          <span class="hljs-comment">#    0.08% of all dTLB cache hits  [27.85%]</span>
+         <span class="hljs-number">3</span>,<span class="hljs-number">499</span>,<span class="hljs-number">865</span> dTLB-store-misses                                            [<span class="hljs-number">27.22</span>%]
+         <span class="hljs-number">6</span>,<span class="hljs-number">033</span>,<span class="hljs-number">521</span> iTLB-loads                                                   [<span class="hljs-number">26.67</span>%]
+           <span class="hljs-number">137</span>,<span class="hljs-number">301</span> iTLB-load-misses          <span class="hljs-comment">#    2.28% of all iTLB cache hits  [25.70%]</span>
+     <span class="hljs-number">5</span>,<span class="hljs-number">358</span>,<span class="hljs-number">000</span>,<span class="hljs-number">833</span> branch-loads                                                 [<span class="hljs-number">26.10</span>%]
+        <span class="hljs-number">14</span>,<span class="hljs-number">514</span>,<span class="hljs-number">551</span> branch-load-misses                                           [<span class="hljs-number">26.46</span>%]
+
+      <span class="hljs-number">72.204267148</span> seconds time elapsed
+</code></pre>
+<h2 id="from-both-sides">From Both Sides</h2>
+<p>Takes a array and adds <code>i</code> and <code>size - i</code> at the same time. The code can be found <a href="../src/main/c/perf-flamegraph/from_both_sides_adder.c">here</a></p>
+<pre><code class="lang-bash"> Performance counter stats <span class="hljs-keyword">for</span> <span class="hljs-string">'./from_both_sides_adder'</span>:
+
+        <span class="hljs-number">46</span>,<span class="hljs-number">651</span>,<span class="hljs-number">186</span> cache-misses                                                 [<span class="hljs-number">26.58</span>%]
+        <span class="hljs-number">27</span>,<span class="hljs-number">268</span>,<span class="hljs-number">639</span> branch-misses                                                [<span class="hljs-number">26.02</span>%]
+    <span class="hljs-number">18</span>,<span class="hljs-number">303</span>,<span class="hljs-number">085</span>,<span class="hljs-number">556</span> L1-dcache-loads                                              [<span class="hljs-number">26.59</span>%]
+       <span class="hljs-number">558</span>,<span class="hljs-number">199</span>,<span class="hljs-number">829</span> L1-dcache-load-misses     <span class="hljs-comment">#    3.05% of all L1-dcache hits   [26.74%]</span>
+       <span class="hljs-number">288</span>,<span class="hljs-number">333</span>,<span class="hljs-number">367</span> L1-dcache-store-misses                                       [<span class="hljs-number">26.88</span>%]
+                 <span class="hljs-number">0</span> L1-dcache-prefetch-misses                                    [<span class="hljs-number">27.19</span>%]
+        <span class="hljs-number">41</span>,<span class="hljs-number">591</span>,<span class="hljs-number">357</span> L1-icache-load-misses                                        [<span class="hljs-number">27.01</span>%]
+        <span class="hljs-number">63</span>,<span class="hljs-number">350</span>,<span class="hljs-number">046</span> LLC-loads                                                    [<span class="hljs-number">26.72</span>%]
+    <span class="hljs-number">18</span>,<span class="hljs-number">398</span>,<span class="hljs-number">342</span>,<span class="hljs-number">880</span> dTLB-loads                                                   [<span class="hljs-number">26.94</span>%]
+        <span class="hljs-number">14</span>,<span class="hljs-number">120</span>,<span class="hljs-number">976</span> dTLB-load-misses          <span class="hljs-comment">#    0.08% of all dTLB cache hits  [26.76%]</span>
+         <span class="hljs-number">3</span>,<span class="hljs-number">414</span>,<span class="hljs-number">592</span> dTLB-store-misses                                            [<span class="hljs-number">26.70</span>%]
+         <span class="hljs-number">3</span>,<span class="hljs-number">693</span>,<span class="hljs-number">511</span> iTLB-loads                                                   [<span class="hljs-number">26.59</span>%]
+            <span class="hljs-number">78</span>,<span class="hljs-number">424</span> iTLB-load-misses          <span class="hljs-comment">#    2.12% of all iTLB cache hits  [26.61%]</span>
+     <span class="hljs-number">7</span>,<span class="hljs-number">026</span>,<span class="hljs-number">888</span>,<span class="hljs-number">081</span> branch-loads                                                 [<span class="hljs-number">26.56</span>%]
+        <span class="hljs-number">26</span>,<span class="hljs-number">626</span>,<span class="hljs-number">588</span> branch-load-misses                                           [<span class="hljs-number">26.52</span>%]
+
+      <span class="hljs-number">39.921707780</span> seconds time elapsed
+</code></pre>
+<h2 id="linked-list">Linked List</h2>
+<p>Takes a linked list and walks it in order (400m elements vs 1b like the rest). The code can be found <a href="../src/main/c/perf-flamegraph/linkedlist_adder.c">here</a></p>
+<pre><code class="lang-bash"> Performance counter stats <span class="hljs-keyword">for</span> <span class="hljs-string">'./linkedlist_adder'</span>:
+
+        <span class="hljs-number">55</span>,<span class="hljs-number">014</span>,<span class="hljs-number">404</span> cache-misses                                                 [<span class="hljs-number">26.36</span>%]
+        <span class="hljs-number">16</span>,<span class="hljs-number">715</span>,<span class="hljs-number">817</span> branch-misses                                                [<span class="hljs-number">26.31</span>%]
+    <span class="hljs-number">26</span>,<span class="hljs-number">418</span>,<span class="hljs-number">238</span>,<span class="hljs-number">556</span> L1-dcache-loads                                              [<span class="hljs-number">26.58</span>%]
+       <span class="hljs-number">615</span>,<span class="hljs-number">325</span>,<span class="hljs-number">868</span> L1-dcache-load-misses     <span class="hljs-comment">#    2.33% of all L1-dcache hits   [26.66%]</span>
+       <span class="hljs-number">276</span>,<span class="hljs-number">659</span>,<span class="hljs-number">932</span> L1-dcache-store-misses                                       [<span class="hljs-number">26.78</span>%]
+                 <span class="hljs-number">0</span> L1-dcache-prefetch-misses                                    [<span class="hljs-number">26.73</span>%]
+       <span class="hljs-number">111</span>,<span class="hljs-number">946</span>,<span class="hljs-number">630</span> L1-icache-load-misses                                        [<span class="hljs-number">26.85</span>%]
+       <span class="hljs-number">120</span>,<span class="hljs-number">545</span>,<span class="hljs-number">583</span> LLC-loads                                                    [<span class="hljs-number">26.83</span>%]
+    <span class="hljs-number">25</span>,<span class="hljs-number">985</span>,<span class="hljs-number">243</span>,<span class="hljs-number">026</span> dTLB-loads                                                   [<span class="hljs-number">26.87</span>%]
+        <span class="hljs-number">15</span>,<span class="hljs-number">918</span>,<span class="hljs-number">952</span> dTLB-load-misses          <span class="hljs-comment">#    0.06% of all dTLB cache hits  [26.78%]</span>
+        <span class="hljs-number">11</span>,<span class="hljs-number">610</span>,<span class="hljs-number">328</span> dTLB-store-misses                                            [<span class="hljs-number">26.85</span>%]
+         <span class="hljs-number">9</span>,<span class="hljs-number">819</span>,<span class="hljs-number">113</span> iTLB-loads                                                   [<span class="hljs-number">26.78</span>%]
+           <span class="hljs-number">289</span>,<span class="hljs-number">067</span> iTLB-load-misses          <span class="hljs-comment">#    2.94% of all iTLB cache hits  [26.74%]</span>
+    <span class="hljs-number">19</span>,<span class="hljs-number">283</span>,<span class="hljs-number">351</span>,<span class="hljs-number">923</span> branch-loads                                                 [<span class="hljs-number">26.64</span>%]
+        <span class="hljs-number">16</span>,<span class="hljs-number">742</span>,<span class="hljs-number">437</span> branch-load-misses                                           [<span class="hljs-number">26.52</span>%]
+
+      <span class="hljs-number">93.792359274</span> seconds time elapsed
+</code></pre>
+<h2 id="linked-list-without-assert">Linked List without assert</h2>
+<p>Same as above, but the assert is commented out</p>
+<pre><code class="lang-bash"> Performance counter stats <span class="hljs-keyword">for</span> <span class="hljs-string">'./linkedlist_adder'</span>:
+
+        <span class="hljs-number">52</span>,<span class="hljs-number">220</span>,<span class="hljs-number">633</span> cache-misses                                                 [<span class="hljs-number">26.65</span>%]
+        <span class="hljs-number">15</span>,<span class="hljs-number">847</span>,<span class="hljs-number">915</span> branch-misses                                                [<span class="hljs-number">26.27</span>%]
+    <span class="hljs-number">25</span>,<span class="hljs-number">761</span>,<span class="hljs-number">210</span>,<span class="hljs-number">404</span> L1-dcache-loads                                              [<span class="hljs-number">26.38</span>%]
+       <span class="hljs-number">579</span>,<span class="hljs-number">263</span>,<span class="hljs-number">767</span> L1-dcache-load-misses     <span class="hljs-comment">#    2.25% of all L1-dcache hits   [26.42%]</span>
+       <span class="hljs-number">270</span>,<span class="hljs-number">798</span>,<span class="hljs-number">986</span> L1-dcache-store-misses                                       [<span class="hljs-number">26.46</span>%]
+                 <span class="hljs-number">0</span> L1-dcache-prefetch-misses                                    [<span class="hljs-number">26.69</span>%]
+       <span class="hljs-number">108</span>,<span class="hljs-number">347</span>,<span class="hljs-number">338</span> L1-icache-load-misses                                        [<span class="hljs-number">26.55</span>%]
+       <span class="hljs-number">106</span>,<span class="hljs-number">339</span>,<span class="hljs-number">684</span> LLC-loads                                                    [<span class="hljs-number">26.41</span>%]
+    <span class="hljs-number">25</span>,<span class="hljs-number">909</span>,<span class="hljs-number">887</span>,<span class="hljs-number">869</span> dTLB-loads                                                   [<span class="hljs-number">26.77</span>%]
+        <span class="hljs-number">13</span>,<span class="hljs-number">402</span>,<span class="hljs-number">369</span> dTLB-load-misses          <span class="hljs-comment">#    0.05% of all dTLB cache hits  [27.16%]</span>
+        <span class="hljs-number">10</span>,<span class="hljs-number">280</span>,<span class="hljs-number">813</span> dTLB-store-misses                                            [<span class="hljs-number">27.11</span>%]
+         <span class="hljs-number">7</span>,<span class="hljs-number">592</span>,<span class="hljs-number">594</span> iTLB-loads                                                   [<span class="hljs-number">27.14</span>%]
+           <span class="hljs-number">233</span>,<span class="hljs-number">201</span> iTLB-load-misses          <span class="hljs-comment">#    3.07% of all iTLB cache hits  [26.89%]</span>
+    <span class="hljs-number">18</span>,<span class="hljs-number">801</span>,<span class="hljs-number">929</span>,<span class="hljs-number">066</span> branch-loads                                                 [<span class="hljs-number">26.49</span>%]
+        <span class="hljs-number">16</span>,<span class="hljs-number">188</span>,<span class="hljs-number">020</span> branch-load-misses                                           [<span class="hljs-number">26.89</span>%]
+
+      <span class="hljs-number">91.687703629</span> seconds time elapsed
+</code></pre>
+<h2 id="summary">Summary</h2>
+<p>Results shouldn&#39;t be too shocking, <code>from_both_sides_adder</code> has to load less instructions since its doing more in its loop, same for branching since it has to do half the branching since it does two elements at the same time.</p>
+<p>Whats interesting is why the linked list was slower, both the amount of data requests (two field lookups vs 1 array lookup) and the number of instruction misses seem to be the major issue. One thing I don&#39;t get is why <code>branch-loads</code> is so much higher.  The only difference I see is while vs for, but that shouldn&#39;t cause this.</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../perf/FlameGraphs.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Flame Graphs"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
