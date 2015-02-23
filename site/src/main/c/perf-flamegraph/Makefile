@@ -1,5 +1,7 @@
 CFLAGS=-Wall -g -std=c99 -pthread
 
+all: build
+
 build: counter_race locking_counter cas_counter
 
 perf: build
