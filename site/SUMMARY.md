@@ -9,3 +9,4 @@
   * [Install](perf/Install.md)
   * [Intro](perf/Intro.md)
   * [Flame Graphs](perf/FlameGraphs.md)
+  * [Events](perf/Events.md)
