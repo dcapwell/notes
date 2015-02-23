@@ -101,7 +101,8 @@ branch-load-misses
 
 ## Linear
 
-Take a array and walks it in order.
+Take a array and walks it in order. The code can be found [here](../src/main/c/perf-flamegraph/linear_adder.c)
+
 
 ```bash
  Performance counter stats for './linear_adder':
@@ -127,7 +128,7 @@ Take a array and walks it in order.
 
 ## From Both Sides
 
-Takes a array and adds `i` and `size - i` at the same time.
+Takes a array and adds `i` and `size - i` at the same time. The code can be found [here](../src/main/c/perf-flamegraph/from_both_sides_adder.c)
 
 ```bash
  Performance counter stats for './from_both_sides_adder':
@@ -153,7 +154,7 @@ Takes a array and adds `i` and `size - i` at the same time.
 
 ## Linked List
 
-Takes a linked list and walks it in order (400m elements vs 1b like the rest).
+Takes a linked list and walks it in order (400m elements vs 1b like the rest). The code can be found [here](../src/main/c/perf-flamegraph/linkedlist_adder.c)
 
 ```bash
  Performance counter stats for './linkedlist_adder':
