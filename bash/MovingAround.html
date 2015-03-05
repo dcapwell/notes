@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Intro | Notes</title>
+        <title>bash | Notes</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../perf/FlameGraphs.html" />
+    <link rel="next" href="../strace/README.html" />
     
     
-    <link rel="prev" href="../perf/Install.html" />
+    <link rel="prev" href="../index.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="3.2" data-basepath=".." data-revision="1425534151600">
+    <div class="book" data-level="1" data-basepath=".." data-revision="1425534151600">
     
 
 <div class="book-summary">
@@ -66,7 +66,7 @@
         </li>
     
         
-        <li class="chapter " data-level="1" data-path="bash/MovingAround.html">
+        <li class="chapter active" data-level="1" data-path="bash/MovingAround.html">
             
                 
                     <a href="../bash/MovingAround.html">
@@ -201,7 +201,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="3.2" data-path="perf/Intro.html">
+        <li class="chapter " data-level="3.2" data-path="perf/Intro.html">
             
                 
                     <a href="../perf/Intro.html">
@@ -342,27 +342,47 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_6">
+                    <section class="normal" id="section-gitbook_2">
                     
-                        <h1 id="perf-intro">Perf Intro</h1>
-<p>Once <code>perf</code> is installed, using it is can take a bit, since it has a lot you can do with it.</p>
-<p>One way of using it is to collect stack traces of a application.  To do this, you use the <code>record</code> command with a few arguments.</p>
-<pre><code class="lang-bash"><span class="hljs-built_in">sudo</span> perf record -F <span class="hljs-number">99</span> <span class="hljs-operator">-a</span> -g -- curl <span class="hljs-operator">-s</span>L -o /dev/null http://google.com <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span>
-<span class="hljs-built_in">sudo</span> perf script | stackcollapse-perf.pl | flamegraph.pl &gt; perf.svg
+                        <h1 id="moving-around">Moving Around</h1>
+<p>By default, bash uses <code>emacs</code> commands for moving around.  Since I am a <code>vim</code> person, this means I need to keep track of how to move around...</p>
+<h2 id="getting-around-within-a-line">Getting around within a line</h2>
+<ul>
+<li><code>Ctrl + a</code> - Jump to beginning of the line</li>
+<li><code>Ctrol + e</code> - Jump to the end of the line</li>
+<li><code>Meta + f</code> - Move forward a &#39;word&#39;</li>
+<li><code>Meta + b</code> - Move backward a &#39;word&#39;</li>
+</ul>
+<h2 id="copypaste">Copy/Paste</h2>
+<ul>
+<li><code>Ctrl + k</code> - Cuts from cursor to end of line</li>
+<li><code>Ctrl + y</code> - Pastes at cursor</li>
+</ul>
+<h2 id="history">History</h2>
+<p>As your history builds up, you can use the following to repeat steps in the history</p>
+<ul>
+<li><code>!n</code> - Run a command (n is a number from history) from history</li>
+<li><code>!!</code> - Run the last command</li>
+<li><code>!string</code> - Run the last command that starts with the string</li>
+</ul>
+<p>If you don&#39;t want to run the command, but wish to run a subset (maybe you did <code>strace -- echo &quot;hello&quot;</code>), then you can do that by saying what you want with the <code>:</code> notation</p>
+<ul>
+<li><code>!!:$</code> - For the last command, the last argument<ul>
+<li><code>!$</code> - Shorthand for the above</li>
+</ul>
+</li>
+<li><code>!!:n</code> - For the last command, the nth argument</li>
+</ul>
+<p>For a example</p>
+<pre><code class="lang-bash">[/tmp]  $ mkdir foo
+[/tmp]  $ <span class="hljs-built_in">cd</span> !$
+<span class="hljs-built_in">cd</span> foo
+[/tmp/foo]  $
 </code></pre>
-<p>A lot is going on here, so lets break it down.  <code>perf record</code> states that <code>perf</code> needs to monitor the command being run (<code>curl -sL -o /dev/null http://google.com 2&gt;&amp;1</code>). But what gets monitored is based off the other flags, so lets look at those flags</p>
-<pre><code class="lang-man">-a, --all-cpus
-   System-wide collection from all CPUs.
-...
-
--g
-   Enables call-graph (stack chain/backtrace) recording.
-...
-
--F, --freq=
-   Profile at this frequency.
-</code></pre>
-<p>So, the main flag here is <code>-g</code> which tells <code>perf</code> to look at the stack, so we know what functions call what.  <code>-a</code> tells <code>perf</code> to monitor all the CPUs, and this is important, since <code>perf</code> lets you control which CPUs are monitored (also which sockets). And finally the <code>-F</code> option tells <code>perf</code> how often it should collect stack traces (so in our case, 99 Hertz).</p>
+<h3 id="history--editor">History / Editor</h3>
+<ul>
+<li><code>Ctrl + x  Ctrl + e</code> - When you scroll back in your history, you can add it to a editor, and when exiting it will run the command. Most used command on this page.</li>
+</ul>
 
                     
                     </section>
@@ -373,10 +393,10 @@
         </div>
 
         
-        <a href="../perf/Install.html" class="navigation navigation-prev " aria-label="Previous page: Install"><i class="fa fa-angle-left"></i></a>
+        <a href="../index.html" class="navigation navigation-prev " aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../perf/FlameGraphs.html" class="navigation navigation-next " aria-label="Next page: Flame Graphs"><i class="fa fa-angle-right"></i></a>
+        <a href="../strace/README.html" class="navigation navigation-next " aria-label="Next page: strace"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
