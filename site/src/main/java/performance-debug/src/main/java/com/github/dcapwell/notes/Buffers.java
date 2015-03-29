@@ -26,8 +26,10 @@ public final class Buffers {
     private final byte[] byteArray;
     private final long addressOffset;
     private final long capacity;
+    private final String strValue;
 
     ByteBufferBuffer(final ByteBuffer buffer) {
+      strValue = buffer.clear().getClass().getSimpleName();
       if (buffer.hasArray()) {
         byteArray = buffer.array();
         addressOffset = ARRAY_BASE_OFFSET + buffer.arrayOffset();
@@ -42,20 +44,19 @@ public final class Buffers {
     ByteBufferBuffer(final byte[] array) {
       byteArray = array;
       addressOffset = ARRAY_BASE_OFFSET;
+      strValue = "Heap";
 
       capacity = array.length;
     }
 
     @Override
-    public long capacity() {
-      return capacity;
+    public String toString() {
+      return strValue;
     }
 
     @Override
-    public boolean compareAndSetInt(final int index, final int expectedValue, final int updateValue) {
-      boundsCheck(index, SIZE_OF_INT);
-
-      return UNSAFE.compareAndSwapInt(byteArray, addressOffset + index, expectedValue, updateValue);
+    public long capacity() {
+      return capacity;
     }
 
     @Override
@@ -66,10 +67,38 @@ public final class Buffers {
     }
 
     @Override
-    public boolean compareAndSetLong(final int index, final long expectedValue, final long updateValue) {
-      boundsCheck(index, SIZE_OF_LONG);
+    public int getIntVolatile(final int index) {
+      boundsCheck(index, SIZE_OF_INT);
 
-      return UNSAFE.compareAndSwapLong(byteArray, addressOffset + index, expectedValue, updateValue);
+      return UNSAFE.getIntVolatile(byteArray, addressOffset + index);
+    }
+
+    @Override
+    public void putInt(final int index, final int value) {
+      boundsCheck(index, SIZE_OF_INT);
+
+      UNSAFE.putInt(byteArray, addressOffset + index, value);
+    }
+
+    @Override
+    public void putIntVolatile(final int index, final int value) {
+      boundsCheck(index, SIZE_OF_INT);
+
+      UNSAFE.putIntVolatile(byteArray, addressOffset + index, value);
+    }
+
+    @Override
+    public void putIntOrdered(final int index, final int value) {
+      boundsCheck(index, SIZE_OF_INT);
+
+      UNSAFE.putOrderedInt(byteArray, addressOffset + index, value);
+    }
+
+    @Override
+    public boolean compareAndSetInt(final int index, final int expectedValue, final int updateValue) {
+      boundsCheck(index, SIZE_OF_INT);
+
+      return UNSAFE.compareAndSwapInt(byteArray, addressOffset + index, expectedValue, updateValue);
     }
 
     @Override
@@ -77,6 +106,41 @@ public final class Buffers {
       boundsCheck(index, SIZE_OF_LONG);
 
       return UNSAFE.getLong(byteArray, addressOffset + index);
+    }
+
+    @Override
+    public long getLongVolatile(final int index) {
+      boundsCheck(index, SIZE_OF_LONG);
+
+      return UNSAFE.getLongVolatile(byteArray, addressOffset + index);
+    }
+
+    @Override
+    public void putLong(final int index, final long value) {
+      boundsCheck(index, SIZE_OF_LONG);
+
+      UNSAFE.putLong(byteArray, addressOffset + index, value);
+    }
+
+    @Override
+    public void putLongVolatile(final int index, final long value) {
+      boundsCheck(index, SIZE_OF_LONG);
+
+      UNSAFE.putLongVolatile(byteArray, addressOffset + index, value);
+    }
+
+    @Override
+    public void putLongOrdered(final int index, final long value) {
+      boundsCheck(index, SIZE_OF_LONG);
+
+      UNSAFE.putOrderedLong(byteArray, addressOffset + index, value);
+    }
+
+    @Override
+    public boolean compareAndSetLong(final int index, final long expectedValue, final long updateValue) {
+      boundsCheck(index, SIZE_OF_LONG);
+
+      return UNSAFE.compareAndSwapLong(byteArray, addressOffset + index, expectedValue, updateValue);
     }
 
     private void boundsCheck(final int index, final int length) {

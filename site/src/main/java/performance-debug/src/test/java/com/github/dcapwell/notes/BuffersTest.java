@@ -12,6 +12,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import static com.github.dcapwell.notes.Tests.args;
+import static com.github.dcapwell.notes.Tests.isMac;
+import static com.github.dcapwell.notes.Tests.isUnix;
 
 public final class BuffersTest {
 
@@ -28,6 +30,26 @@ public final class BuffersTest {
   }
 
   @Test(dataProvider = "smallBuffers")
+  public void intBuffersVolatile(final Buffer buffer) {
+    int next;
+    for (int i = 0; i < 32; i++) {
+      next = 1 << i;
+      buffer.putIntVolatile(0, next);
+      Assert.assertEquals(buffer.getIntVolatile(0), next);
+    }
+  }
+
+  @Test(dataProvider = "smallBuffers")
+  public void intBuffersOrdered(final Buffer buffer) {
+    int next;
+    for (int i = 0; i < 32; i++) {
+      next = 1 << i;
+      buffer.putIntOrdered(0, next);
+      Assert.assertEquals(buffer.getIntVolatile(0), next);
+    }
+  }
+
+  @Test(dataProvider = "smallBuffers")
   public void longBuffers(final Buffer buffer) {
     long prev = 0;
     long next;
@@ -36,6 +58,26 @@ public final class BuffersTest {
       Assert.assertTrue(buffer.compareAndSetLong(0, prev, next));
       Assert.assertEquals(buffer.getLong(0), next);
       prev = next;
+    }
+  }
+
+  @Test(dataProvider = "smallBuffers")
+  public void longBuffersVolatile(final Buffer buffer) {
+    long next;
+    for (int i = 0; i < 64; i++) {
+      next = 1 << i;
+      buffer.putLongVolatile(0, next);
+      Assert.assertEquals(buffer.getLongVolatile(0), next);
+    }
+  }
+
+  @Test(dataProvider = "smallBuffers")
+  public void longBuffersOrdered(final Buffer buffer) {
+    long next;
+    for (int i = 0; i < 64; i++) {
+      next = 1 << i;
+      buffer.putLongOrdered(0, next);
+      Assert.assertEquals(buffer.getLongVolatile(0), next);
     }
   }
 
@@ -48,8 +90,11 @@ public final class BuffersTest {
     tests.add(args(Buffers.wrap(ByteBuffer.allocate(Bytes.SIZE_OF_LONG))));
     tests.add(args(Buffers.wrap(ByteBuffer.allocateDirect(Bytes.SIZE_OF_LONG))));
 
-    final FileChannel fc = Closeables.closeOnTerm(IO.createTempFile());
-    tests.add(args(Buffers.wrap(fc.map(FileChannel.MapMode.READ_WRITE, 0, Bytes.SIZE_OF_LONG))));
+    // on mac, this seems to cause segfaults when you call volatile methods
+    if(isUnix) {
+      final FileChannel fc = Closeables.closeOnTerm(IO.createTempFile());
+      tests.add(args(Buffers.wrap(fc.map(FileChannel.MapMode.READ_WRITE, 0, Bytes.SIZE_OF_LONG))));
+    }
 
     return tests.iterator();
   }
