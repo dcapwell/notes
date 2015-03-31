@@ -1,10 +1,12 @@
 package com.github.dcapwell.notes;
 
+import java.nio.ByteBuffer;
+
 public interface Buffer {
   /**
    * How much space is in the buffer.
    */
-  long capacity();
+  int capacity();
 
   /**
    * Get the int value from the index. This method is not thread-safe.
@@ -43,4 +45,19 @@ public interface Buffer {
   void putLongOrdered(int index, long value);
 
   boolean compareAndSetLong(int index, long expectedValue, long value);
+
+  void putBytes(int index, ByteBuffer buffer, int srcIndex, int length);
+  void putBytes(int index, Buffer buffer, int srcIndex, int length);
+
+  void boundsCheck(final int index, final int length);
+
+  /**
+   * The underline byte array for this buffer.  If the buffer is off-heap, then this will return null.
+   */
+  byte[] byteArray();
+
+  /**
+   * Offset within the {@link #byteArray()}.  If this buffer is off-heap, then this is the memory location of the data.
+   */
+  long addressOffset();
 }
