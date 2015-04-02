@@ -60,4 +60,6 @@ public interface Buffer {
    * Offset within the {@link #byteArray()}.  If this buffer is off-heap, then this is the memory location of the data.
    */
   long addressOffset();
+
+  void setMemory(int index, int length, byte value);
 }

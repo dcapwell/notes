@@ -186,6 +186,13 @@ public final class Buffers {
       return addressOffset;
     }
 
+    @Override
+    public void setMemory(final int index, final int length, final byte value) {
+      boundsCheck(index, length);
+
+      UNSAFE.setMemory(byteArray, addressOffset + index, length, value);
+    }
+
     private static void boundsCheck(final ByteBuffer buffer, final int index, final int length) {
       final int capacity = buffer.capacity();
       if (index < 0 || length < 0 || (index + length) > capacity) {

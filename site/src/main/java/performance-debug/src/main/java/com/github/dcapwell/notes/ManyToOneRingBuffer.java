@@ -59,6 +59,54 @@ public final class ManyToOneRingBuffer {
     return true;
   }
 
+  public interface RecordReader {
+    void read(Buffer buffer, int offset, int length);
+  }
+
+  public int read(final RecordReader reader, final int count) {
+    final long read = readVolatile();
+    final long written = writtenVolatile();
+    final int available = (int) (written - read);
+    int messagesRead = 0;
+
+    if(available > 0) {
+      final int readIndex = (int) read & mask;
+      final int leftInBuffer = Math.min(available, capacity - readIndex);
+      int bytesRead = 0;
+
+      try {
+        while((bytesRead < leftInBuffer) && (messagesRead < count)) {
+          final int recordIndex = readIndex + bytesRead;
+          final int length = waitForLength(recordIndex);
+          final int type = msgTypeOffset(readIndex);
+          bytesRead += Bytes.align(length + HEADER_LENGTH, ALIGNMENT);
+
+          if(type == NORMAL_MESSAGE) {
+            messagesRead++;
+            reader.read(buffer, bodyOffset(recordIndex), length);
+          }
+        }
+      } finally {
+        free(readIndex, bytesRead);
+        readOrdered(read + bytesRead);
+      }
+    }
+
+    return messagesRead;
+  }
+
+  private void free(final int index, final int length) {
+    buffer.setMemory(index, length, (byte) 0);
+  }
+
+  private int waitForLength(final int recordIndex) {
+    int length = 0;
+    do {
+      length = buffer.getIntVolatile(lengthOffset(recordIndex));
+    } while(length == 0);
+    return length;
+  }
+
   /**
    * When a write wants to allocation capacity, it needs to figure out where the last write was, try
    * to increment the write size (tail), and then write the data. To make this fully non-locking, the logic is
@@ -128,6 +176,10 @@ public final class ManyToOneRingBuffer {
 
   private long writtenVolatile() {
     return buffer.getLongVolatile(writtenCounterIndex);
+  }
+
+  private void readOrdered(final long value) {
+    buffer.putLongOrdered(readCounterIndex, value);
   }
 
   private long readVolatile() {
