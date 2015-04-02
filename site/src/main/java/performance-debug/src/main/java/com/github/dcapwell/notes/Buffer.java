@@ -62,4 +62,6 @@ public interface Buffer {
   long addressOffset();
 
   void setMemory(int index, int length, byte value);
+
+  byte[] get(int offset, int length);
 }

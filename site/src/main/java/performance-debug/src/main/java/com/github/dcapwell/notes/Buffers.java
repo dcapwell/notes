@@ -193,6 +193,15 @@ public final class Buffers {
       UNSAFE.setMemory(byteArray, addressOffset + index, length, value);
     }
 
+    @Override
+    public byte[] get(final int offset, final int length) {
+      boundsCheck(offset, length);
+
+      final byte[] data = new byte[length];
+      UNSAFE.copyMemory(byteArray, addressOffset + offset, data, ARRAY_BASE_OFFSET, length);
+      return data;
+    }
+
     private static void boundsCheck(final ByteBuffer buffer, final int index, final int length) {
       final int capacity = buffer.capacity();
       if (index < 0 || length < 0 || (index + length) > capacity) {

@@ -4,7 +4,7 @@ package com.github.dcapwell.notes;
 public final class ManyToOneRingBuffer {
   private static final int HEADER_LENGTH = Bytes.SIZE_OF_INT * 2;
   private static final int ALIGNMENT = HEADER_LENGTH;
-  private static final int TRAILER_LENGTH = Bytes.SIZE_OF_LONG * 2;
+  public static final int TRAILER_LENGTH = Bytes.SIZE_OF_LONG * 2;
 
   /**
    * When {@link #claimCapacity(int)} is unable to get the resources, then this is returned.
@@ -24,7 +24,7 @@ public final class ManyToOneRingBuffer {
   private final int writtenCounterIndex;
   private final int readCounterIndex;
 
-  private ManyToOneRingBuffer(final Buffer buffer) {
+  public ManyToOneRingBuffer(final Buffer buffer) {
     this.buffer = buffer;
     this.capacity = checkCapacity(buffer.capacity() - TRAILER_LENGTH);
     this.mask = capacity - 1;
@@ -38,6 +38,10 @@ public final class ManyToOneRingBuffer {
       throw new IllegalArgumentException("Capacity must be a power of two, but was not: " + capacity);
     }
     return capacity;
+  }
+
+  public boolean write(final Buffer srcBuffer) {
+    return write(srcBuffer, 0, srcBuffer.capacity());
   }
 
   public boolean write(final Buffer srcBuffer, final int srcIndex, final int length) {
@@ -151,7 +155,7 @@ public final class ManyToOneRingBuffer {
         padding = remainingBufferSpace;
       }
 
-    } while (casWritten(written, written + requiredCapacity + padding));
+    } while (!casWritten(written, written + requiredCapacity + padding));
 
     if (padding > 0) {
       // write a padding record and loop back to start of buffer
