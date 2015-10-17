@@ -209,3 +209,9 @@ Same as above, but the assert is commented out
 Results shouldn't be too shocking, `from_both_sides_adder` has to load less instructions since its doing more in its loop, same for branching since it has to do half the branching since it does two elements at the same time.
 
 Whats interesting is why the linked list was slower, both the amount of data requests (two field lookups vs 1 array lookup) and the number of instruction misses seem to be the major issue. One thing I don't get is why `branch-loads` is so much higher.  The only difference I see is while vs for, but that shouldn't cause this.
+
+## Useful commands
+
+```
+perf stat -a -e cpu-cycles,stalled-cycles-frontend,stalled-cycles-backend,instructions,cache-references,cache-misses,branch-instructions,branch-misses,bus-cycles,cpu-clock,task-clock,page-faults,minor-faults,major-faults,context-switches,cpu-migrations,alignment-faults,emulation-faults,L1-dcache-loads,L1-dcache-load-misses,L1-dcache-stores,L1-dcache-store-misses,L1-dcache-prefetches,L1-dcache-prefetch-misses,L1-icache-loads,L1-icache-load-misses,L1-icache-prefetches,L1-icache-prefetch-misses,LLC-loads,LLC-load-misses,LLC-stores,LLC-store-misses,LLC-prefetches,LLC-prefetch-misses,dTLB-loads,dTLB-load-misses,dTLB-stores,dTLB-store-misses,dTLB-prefetches,dTLB-prefetch-misses,iTLB-loads,iTLB-load-misses,branch-loads,branch-load-misses -p <pid>
+```
